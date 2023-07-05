@@ -6,10 +6,25 @@ secao = 'tcp'
 chave = 'server'
 porta = 'port'
 
+ip = config.get(secao, chave)
+porta = config.get(secao, porta)
+print("O servidor é: {}\nPorta: {}".format(ip, porta))
+
+
+
+# Apaga toda a section do arquivo 
+
+"""
+config.remove_section('tcp')
+f =open('C:\Program Files\Protheus_2210\smartclient.ini', 'w')
+config.write(f)
+f.close()
+"""
+
 #Adiciona novos dados ao arquivo
 
-config.set('tcp', 'server', '10.14.115.13')
-config.set('tcp', 'port', '1122')
+config.set('tcp', 'server', '10.14.115.12')
+config.set('tcp', 'port', '1111')
 
 with open('C:\Program Files\Protheus_2210\smartclient.ini', 'w') as configfile:
     config.write(configfile)
