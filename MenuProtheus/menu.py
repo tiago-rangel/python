@@ -3,6 +3,20 @@ import configparser
 config = configparser.ConfigParser()
 config.read("C:\Program Files\Protheus_2210\smartclient.ini")
 os.system('cls')
+ambientes = {
+    ('10.14.115.12', '1111'): 'Padrão',
+    ('10.14.115.12', '1240'): 'MyMobility',
+    ('10.14.115.12', '1299'): 'MyMobility_1299',
+    ('10.14.115.12', '1263'): 'Estoque',
+    ('10.14.115.30', '1301'): 'Logística',
+    ('10.14.115.30', '1302'): 'Oficina',
+    ('10.14.115.30', '1303'): 'Safran Representações',
+    ('10.14.115.12', '1304'): 'Ambiente de Validação'
+}
+server = config.get('tcp', 'server')
+port = config.get('tcp', 'port')
+ambiente = ambientes.get((server, port))
+print(f"Seu ambiente atual é: Ambiente {ambiente} server={server} e port={port}\n")
 opcao = 0
 while opcao != 9:
     print('Este é um configurador de ambiente para o sistema Protheus.\nEscolha uma das opções abaixo.\n')
@@ -60,4 +74,4 @@ while opcao != 9:
         with open('C:\Program Files\Protheus_2210\smartclient.ini', 'w') as configfile:
             config.write(configfile)
 os.system('cls')
-print('Fim do programa! Volte sempre!')
+print('Fim da execução')
