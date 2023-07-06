@@ -1,10 +1,5 @@
 import configparser
 config = configparser.ConfigParser()
-config.read("C:\Program Files\Protheus_2210\smartclient.ini")
-
-secao = 'tcp'
-chave = 'server'
-porta = 'port'
 
 #Adiciona novos dados ao arquivo
 
