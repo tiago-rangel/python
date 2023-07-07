@@ -1,8 +1,14 @@
 import os
 import configparser
+
+#Trecho responsável por ler as configurações do arquivo atuais
+
 config = configparser.ConfigParser()
 config.read("C:\Program Files\Protheus_2210\smartclient.ini")
 os.system('cls')
+
+#Descrição dos ambientes configurados, para exibir quando a opção [9] For selecionada.
+
 ambientes = {
     ('10.14.115.12', '1111'): '[ 1 ] Padrão',
     ('10.14.115.12', '1240'): '[ 2 ] MyMobility',
@@ -17,6 +23,9 @@ server = config.get('tcp', 'server')
 port = config.get('tcp', 'port')
 ambiente = ambientes.get((server, port))
 print(f"Seu ambiente atual é: Ambiente {ambiente} server={server} e port={port}\n")
+
+#Trecho responsável por exibir o menu de opções para o usuário, ler a opção escolhida e executar as funcionalidades atribuidas.
+
 opcao = 0
 while opcao != 10:
     print('Este é um configurador de ambiente para o sistema Protheus.\nEscolha uma das opções abaixo.\n')
@@ -79,6 +88,9 @@ while opcao != 10:
          port = config.get('tcp', 'port')
          ambiente = ambientes.get((server, port))
          print(f"Seu ambiente atual é: Ambiente {ambiente} server={server} e port={port}\n")
+
+#Finaliza o programa e abre  o Protheus com a configuração escolhida.
+
 os.system('cls')
 if input("Deseja abrir o Protheus? (s/n) ") == "s":
     os.system(r'"C:\Program Files\Protheus_2210\smartclient.exe"')
