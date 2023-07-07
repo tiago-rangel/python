@@ -75,6 +75,9 @@ while opcao != 10:
         with open('C:\Program Files\Protheus_2210\smartclient.ini', 'w') as configfile:
             config.write(configfile)
     elif opcao ==9:
+         server = config.get('tcp', 'server')
+         port = config.get('tcp', 'port')
+         ambiente = ambientes.get((server, port))
          print(f"Seu ambiente atual é: Ambiente {ambiente} server={server} e port={port}\n")
 os.system('cls')
 if input("Deseja abrir o Protheus? (s/n) ") == "s":
