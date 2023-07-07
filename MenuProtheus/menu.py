@@ -44,46 +44,87 @@ while opcao != 10:
     print('**********************************************************\n')
     opcao = int(input('Qual é a sua opção? '))
     if opcao == 1:
+        os.system('cls')
         config.set('tcp', 'server', '10.14.115.12')
         config.set('tcp', 'port', '1111')
         with open('C:\Program Files\Protheus_2210\smartclient.ini', 'w') as configfile:
             config.write(configfile)
+        server = config.get('tcp', 'server')
+        port = config.get('tcp', 'port')
+        ambiente = ambientes.get((server, port))
+        print(f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n")
     elif opcao == 2:
+        os.system('cls')
         config.set('tcp', 'server', '10.14.115.12')
         config.set('tcp', 'port', '1240')
         with open('C:\Program Files\Protheus_2210\smartclient.ini', 'w') as configfile:
             config.write(configfile)
+        server = config.get('tcp', 'server')
+        port = config.get('tcp', 'port')
+        ambiente = ambientes.get((server, port))
+        print(f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n")
     elif opcao == 3:
+        os.system('cls')
         config.set('tcp', 'server', '10.14.115.12')
         config.set('tcp', 'port', '1299')
         with open('C:\Program Files\Protheus_2210\smartclient.ini', 'w') as configfile:
             config.write(configfile)
+        server = config.get('tcp', 'server')
+        port = config.get('tcp', 'port')
+        ambiente = ambientes.get((server, port))
+        print(f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n")
     elif opcao == 4:
+        os.system('cls')
         config.set('tcp', 'server', '10.14.115.12')
         config.set('tcp', 'port', '1263')
         with open('C:\Program Files\Protheus_2210\smartclient.ini', 'w') as configfile:
             config.write(configfile)
+        server = config.get('tcp', 'server')
+        port = config.get('tcp', 'port')
+        ambiente = ambientes.get((server, port))
+        print(f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n")
     elif opcao == 5:
+        os.system('cls')
         config.set('tcp', 'server', '10.14.115.30')
         config.set('tcp', 'port', '1301')
         with open('C:\Program Files\Protheus_2210\smartclient.ini', 'w') as configfile:
             config.write(configfile)
+        server = config.get('tcp', 'server')
+        port = config.get('tcp', 'port')
+        ambiente = ambientes.get((server, port))
+        print(f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n")
     elif opcao == 6:
+        os.system('cls')
         config.set('tcp', 'server', '10.14.115.30')
         config.set('tcp', 'port', '1302')
         with open('C:\Program Files\Protheus_2210\smartclient.ini', 'w') as configfile:
             config.write(configfile)
+        server = config.get('tcp', 'server')
+        port = config.get('tcp', 'port')
+        ambiente = ambientes.get((server, port))
+        print(f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n")
     elif opcao == 7:
+        os.system('cls')
         config.set('tcp', 'server', '10.14.115.12')
         config.set('tcp', 'port', '1262')
         with open('C:\Program Files\Protheus_2210\smartclient.ini', 'w') as configfile:
             config.write(configfile)
+        server = config.get('tcp', 'server')
+        port = config.get('tcp', 'port')
+        ambiente = ambientes.get((server, port))
+        print(f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n")
     elif opcao == 8:
+        os.system('cls')
         config.set('tcp', 'server', '10.14.115.31')
         config.set('tcp', 'port', '1456')
         with open('C:\Program Files\Protheus_2210\smartclient.ini', 'w') as configfile:
             config.write(configfile)
+        server = config.get('tcp', 'server')
+        port = config.get('tcp', 'port')
+        ambiente = ambientes.get((server, port))
+        print(f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n")
     elif opcao ==9:
+         os.system('cls')
          server = config.get('tcp', 'server')
          port = config.get('tcp', 'port')
          ambiente = ambientes.get((server, port))
@@ -94,3 +135,5 @@ while opcao != 10:
 os.system('cls')
 if input("Deseja abrir o Protheus? (s/n) ") == "s":
     os.system(r'"C:\Program Files\Protheus_2210\smartclient.exe"')
+    os.system('exit')
+    
