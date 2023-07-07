@@ -34,7 +34,6 @@ while opcao != 10:
     [ 10 ] Sair do configurador e Abrir o Protheus\n''')
     print('**********************************************************\n')
     opcao = int(input('Qual é a sua opção? '))
-    print("Opção inválida!")
     if opcao == 1:
         config.set('tcp', 'server', '10.14.115.12')
         config.set('tcp', 'port', '1111')
@@ -79,6 +78,4 @@ while opcao != 10:
          print(f"Seu ambiente atual é: Ambiente {ambiente} server={server} e port={port}\n")
 os.system('cls')
 if input("Deseja abrir o Protheus? (s/n) ") == "s":
-   if resposta.lower() not in ["s", "n"]:
-    print("Resposta inválida!")
     os.system(r'"C:\Program Files\Protheus_2210\smartclient.exe"')
