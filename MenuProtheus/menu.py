@@ -51,11 +51,11 @@ while opcao != 10:
       try:
           opcao = int(input('\nQual é a sua opção? '))
           if opcao not in range(1, 11):
-              print('Opção inválida. Tente novamente.')
+              print('\033[91mOpção inválida. Tente novamente.\033[0m')
           else:
               break
       except ValueError:
-          print('Entrada inválida. Tente novamente.')
+          print('\033[91mEntrada inválida. Tente novamente.\033[0m')
 
 
     # De acordo com a opção escolhida pelo usuário é executada a alteração do campo TCP do arquivo ini
@@ -158,6 +158,9 @@ while opcao != 10:
 #Finaliza o programa e abre  o Protheus com a configuração escolhida.
 
 os.system('cls')
+import os
+import sys
+
 while True:
     try:
         opcao = input('\nDeseja abrir o Protheus? (s/n) ')
@@ -167,8 +170,8 @@ while True:
         elif opcao == 'n':
             break
         else:
-            print('Opção inválida. Tente novamente.')
+            print('\033[91mOpção inválida. Tente novamente.\033[0m')
     except ValueError:
-        print('Entrada inválida. Tente novamente.')
+        print('\033[91mEntrada inválida. Tente novamente.\033[0m')
 
-    
+
