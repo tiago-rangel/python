@@ -2,6 +2,7 @@ import os
 import configparser
 import sys
 
+
 #Trecho responsável por ler as configurações do arquivo atuais
 
 config = configparser.ConfigParser()
@@ -23,15 +24,15 @@ ambientes = {
 server = config.get('tcp', 'server')
 port = config.get('tcp', 'port')
 ambiente = ambientes.get((server, port))
-print(f"Seu ambiente atual é: Ambiente {ambiente} server={server} e port={port}\n")
+print("\033[34m" + f"Seu ambiente atual é: Ambiente {ambiente} server={server} e port={port}\n" + "\033[0m")
 
 #Trecho responsável por exibir o menu de opções para o usuário, ler a opção escolhida e executar as funcionalidades atribuidas.
 
 opcao = 0
 while opcao != 10:
     print('Este é um configurador de ambiente para o sistema Protheus.\n\nEscolha uma das opções abaixo.\n')
-    print(' _____________________________________________________________')
-    print('''|                                                            |
+    print("\033[34m" + ' _____________________________________________________________' + "\033[0m")
+    print("\033[34m" + '''|                                                            |
 |       [ 1 ] Padrão                                         |
 |       [ 2 ] MyMobility                                     |
 |       [ 3 ] MyMobility_1299                                |
@@ -42,8 +43,9 @@ while opcao != 10:
 |       [ 8 ] Ambiente de Validação                          |
 |       [ 9 ] Verificar ambiente                             |
 |       [ 10 ] Sair do configurador e Abrir o Protheus       |
-|                                                            |''')           
-    print('_____________________________________________________________')
+|                                                            |''' + "\033[0m")
+    print("\033[34m" + ' _____________________________________________________________' + "\033[0m")
+
    
     # Solicita ao usuário que digite a opção e testa é válida.
 
@@ -69,7 +71,7 @@ while opcao != 10:
         server = config.get('tcp', 'server')
         port = config.get('tcp', 'port')
         ambiente = ambientes.get((server, port))
-        print(f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n")
+        print("\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n"+ "\033[0m")
 
     elif opcao == 2:
         os.system('cls')
@@ -80,7 +82,7 @@ while opcao != 10:
         server = config.get('tcp', 'server')
         port = config.get('tcp', 'port')
         ambiente = ambientes.get((server, port))
-        print(f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n")
+        print("\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n"+ "\033[0m")
 
     elif opcao == 3:
         os.system('cls')
@@ -91,7 +93,7 @@ while opcao != 10:
         server = config.get('tcp', 'server')
         port = config.get('tcp', 'port')
         ambiente = ambientes.get((server, port))
-        print(f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n")
+        print("\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n"+ "\033[0m")
 
     elif opcao == 4:
         os.system('cls')
@@ -102,7 +104,7 @@ while opcao != 10:
         server = config.get('tcp', 'server')
         port = config.get('tcp', 'port')
         ambiente = ambientes.get((server, port))
-        print(f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n")
+        print("\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n"+ "\033[0m")
 
     elif opcao == 5:
         os.system('cls')
@@ -113,7 +115,7 @@ while opcao != 10:
         server = config.get('tcp', 'server')
         port = config.get('tcp', 'port')
         ambiente = ambientes.get((server, port))
-        print(f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n")
+        print("\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n"+ "\033[0m")
 
     elif opcao == 6:
         os.system('cls')
@@ -124,7 +126,7 @@ while opcao != 10:
         server = config.get('tcp', 'server')
         port = config.get('tcp', 'port')
         ambiente = ambientes.get((server, port))
-        print(f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n")
+        print("\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n"+ "\033[0m")
 
     elif opcao == 7:
         os.system('cls')
@@ -135,7 +137,7 @@ while opcao != 10:
         server = config.get('tcp', 'server')
         port = config.get('tcp', 'port')
         ambiente = ambientes.get((server, port))
-        print(f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n")
+        print("\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n"+ "\033[0m")
 
     elif opcao == 8:
         os.system('cls')
@@ -146,15 +148,15 @@ while opcao != 10:
         server = config.get('tcp', 'server')
         port = config.get('tcp', 'port')
         ambiente = ambientes.get((server, port))
-        print(f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n")
+        print("\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n"+ "\033[0m")
         
     elif opcao ==9:
          os.system('cls')
          server = config.get('tcp', 'server')
          port = config.get('tcp', 'port')
          ambiente = ambientes.get((server, port))
-         print(f"Seu ambiente atual é: Ambiente {ambiente} server={server} e port={port}\n")
-         
+         print("\033[34m" + f"Seu ambiente atual é: Ambiente {ambiente} server={server} e port={port}\n" + "\033[0m")
+
 #Finaliza o programa e abre  o Protheus com a configuração escolhida.
 
 os.system('cls')
