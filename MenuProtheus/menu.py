@@ -43,7 +43,16 @@ while opcao != 10:
 |       [ 10 ] Sair do configurador e Abrir o Protheus       |
 |                                                            |''')           
     print('_____________________________________________________________')
+   
+    # Solicita ao usuário que digite a opção e testa se ela e válida.
+
     opcao = int(input('\nQual é a sua opção? '))
+    while opcao not in range(1, 11):
+        print('Opção inválida. Tente novamente.')
+        opcao = int(input('\nQual é a sua opção? '))
+
+    # De acordo com a opção escolhida pelo usuário é executada a alteração do campo TCP do arquivo ini
+
     if opcao == 1:
         os.system('cls')
         config.set('tcp', 'server', '10.14.115.12')
@@ -54,6 +63,7 @@ while opcao != 10:
         port = config.get('tcp', 'port')
         ambiente = ambientes.get((server, port))
         print(f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n")
+
     elif opcao == 2:
         os.system('cls')
         config.set('tcp', 'server', '10.14.115.12')
@@ -64,6 +74,7 @@ while opcao != 10:
         port = config.get('tcp', 'port')
         ambiente = ambientes.get((server, port))
         print(f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n")
+
     elif opcao == 3:
         os.system('cls')
         config.set('tcp', 'server', '10.14.115.12')
@@ -74,6 +85,7 @@ while opcao != 10:
         port = config.get('tcp', 'port')
         ambiente = ambientes.get((server, port))
         print(f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n")
+
     elif opcao == 4:
         os.system('cls')
         config.set('tcp', 'server', '10.14.115.12')
@@ -84,6 +96,7 @@ while opcao != 10:
         port = config.get('tcp', 'port')
         ambiente = ambientes.get((server, port))
         print(f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n")
+
     elif opcao == 5:
         os.system('cls')
         config.set('tcp', 'server', '10.14.115.30')
@@ -94,6 +107,7 @@ while opcao != 10:
         port = config.get('tcp', 'port')
         ambiente = ambientes.get((server, port))
         print(f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n")
+
     elif opcao == 6:
         os.system('cls')
         config.set('tcp', 'server', '10.14.115.30')
@@ -104,6 +118,7 @@ while opcao != 10:
         port = config.get('tcp', 'port')
         ambiente = ambientes.get((server, port))
         print(f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n")
+
     elif opcao == 7:
         os.system('cls')
         config.set('tcp', 'server', '10.14.115.30')
@@ -114,6 +129,7 @@ while opcao != 10:
         port = config.get('tcp', 'port')
         ambiente = ambientes.get((server, port))
         print(f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n")
+
     elif opcao == 8:
         os.system('cls')
         config.set('tcp', 'server', '10.14.115.12')
@@ -124,6 +140,7 @@ while opcao != 10:
         port = config.get('tcp', 'port')
         ambiente = ambientes.get((server, port))
         print(f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n")
+        
     elif opcao ==9:
          os.system('cls')
          server = config.get('tcp', 'server')
