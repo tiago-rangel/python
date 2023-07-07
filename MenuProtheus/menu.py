@@ -44,12 +44,18 @@ while opcao != 10:
 |                                                            |''')           
     print('_____________________________________________________________')
    
-    # Solicita ao usuário que digite a opção e testa se ela e válida.
+    # Solicita ao usuário que digite a opção e testa é válida.
 
-    opcao = int(input('\nQual é a sua opção? '))
-    while opcao not in range(1, 11):
-        print('Opção inválida. Tente novamente.')
-        opcao = int(input('\nQual é a sua opção? '))
+    while True:
+      try:
+          opcao = int(input('\nQual é a sua opção? '))
+          if opcao not in range(1, 11):
+              print('Opção inválida. Tente novamente.')
+          else:
+              break
+      except ValueError:
+          print('Entrada inválida. Tente novamente.')
+
 
     # De acordo com a opção escolhida pelo usuário é executada a alteração do campo TCP do arquivo ini
 
