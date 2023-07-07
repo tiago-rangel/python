@@ -4,14 +4,14 @@ config = configparser.ConfigParser()
 config.read("C:\Program Files\Protheus_2210\smartclient.ini")
 os.system('cls')
 ambientes = {
-    ('10.14.115.12', '1111'): 'Padrão',
-    ('10.14.115.12', '1240'): 'MyMobility',
-    ('10.14.115.12', '1299'): 'MyMobility_1299',
-    ('10.14.115.12', '1263'): 'Estoque',
-    ('10.14.115.30', '1301'): 'Logística',
-    ('10.14.115.30', '1302'): 'Oficina',
-    ('10.14.115.30', '1303'): 'Safran Representações',
-    ('10.14.115.12', '1304'): 'Ambiente de Validação'
+    ('10.14.115.12', '1111'): '[ 1 ] Padrão',
+    ('10.14.115.12', '1240'): '[ 2 ] MyMobility',
+    ('10.14.115.12', '1299'): '[ 3 ] MyMobility_1299',
+    ('10.14.115.12', '1263'): '[ 4 ] Estoque',
+    ('10.14.115.30', '1301'): '[ 5 ] Logística',
+    ('10.14.115.30', '1302'): '[ 6 ] Oficina',
+    ('10.14.115.30', '1303'): '[ 7 ] Safran Representações',
+    ('10.14.115.12', '1304'): '[ 8 ] Ambiente de Validação'
 }
 server = config.get('tcp', 'server')
 port = config.get('tcp', 'port')
