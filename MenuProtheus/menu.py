@@ -27,7 +27,7 @@ print(f"Seu ambiente atual é: Ambiente {ambiente} server={server} e port={port}
 #Trecho responsável por exibir o menu de opções para o usuário, ler a opção escolhida e executar as funcionalidades atribuidas.
 
 opcao = 0
-while opcao != 10:
+while opcao != 11:
     print('Este é um configurador de ambiente para o sistema Protheus.\nEscolha uma das opções abaixo.\n')
     print('**********************************************************')
     print('''
@@ -105,8 +105,8 @@ while opcao != 10:
         print(f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n")
     elif opcao == 7:
         os.system('cls')
-        config.set('tcp', 'server', '10.14.115.12')
-        config.set('tcp', 'port', '1262')
+        config.set('tcp', 'server', '10.14.115.30')
+        config.set('tcp', 'port', '1303')
         with open('C:\Program Files\Protheus_2210\smartclient.ini', 'w') as configfile:
             config.write(configfile)
         server = config.get('tcp', 'server')
@@ -115,8 +115,8 @@ while opcao != 10:
         print(f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n")
     elif opcao == 8:
         os.system('cls')
-        config.set('tcp', 'server', '10.14.115.31')
-        config.set('tcp', 'port', '1456')
+        config.set('tcp', 'server', '10.14.115.12')
+        config.set('tcp', 'port', '1304')
         with open('C:\Program Files\Protheus_2210\smartclient.ini', 'w') as configfile:
             config.write(configfile)
         server = config.get('tcp', 'server')
@@ -129,7 +129,7 @@ while opcao != 10:
          port = config.get('tcp', 'port')
          ambiente = ambientes.get((server, port))
          print(f"Seu ambiente atual é: Ambiente {ambiente} server={server} e port={port}\n")
-
+         
 #Finaliza o programa e abre  o Protheus com a configuração escolhida.
 
 os.system('cls')
