@@ -2,6 +2,16 @@ import os
 import configparser
 import sys
 
+# Este trecho de código altera a permissão do arquivo para escrita se necessário.
+
+from stat import S_IREAD, S_IRGRP, S_IROTH, S_IWUSR
+
+file = r'C:\Program Files\Protheus_2210\smartclient.ini'
+
+if os.path.exists(file):
+    if (os.stat(file).st_mode & S_IREAD):
+        os.chmod(file, S_IWUSR|S_IRGRP|S_IROTH)
+        print('\033[33m' + 'As permissões do arquivo foram alteradas' + '\033[0m')
 
 #Trecho responsável por ler as configurações do arquivo atuais
 
@@ -175,5 +185,3 @@ while True:
             print('\033[91mOpção inválida. Tente novamente.\033[0m')
     except ValueError:
         print('\033[91mEntrada inválida. Tente novamente.\033[0m')
-
-
