@@ -1,5 +1,6 @@
 import os
 import configparser
+import sys
 
 #Trecho responsável por ler as configurações do arquivo atuais
 
@@ -157,7 +158,17 @@ while opcao != 10:
 #Finaliza o programa e abre  o Protheus com a configuração escolhida.
 
 os.system('cls')
-if input("Deseja abrir o Protheus? (s/n) ") == "s":
-    os.system(r'"C:\Program Files\Protheus_2210\smartclient.exe"')
-    os.system('exit')
+while True:
+    try:
+        opcao = input('\nDeseja abrir o Protheus? (s/n) ')
+        if opcao == 's':
+            os.system(r'"C:\Program Files\Protheus_2210\smartclient.exe"')
+            sys.exit()
+        elif opcao == 'n':
+            break
+        else:
+            print('Opção inválida. Tente novamente.')
+    except ValueError:
+        print('Entrada inválida. Tente novamente.')
+
     
