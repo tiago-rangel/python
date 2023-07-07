@@ -27,22 +27,23 @@ print(f"Seu ambiente atual é: Ambiente {ambiente} server={server} e port={port}
 #Trecho responsável por exibir o menu de opções para o usuário, ler a opção escolhida e executar as funcionalidades atribuidas.
 
 opcao = 0
-while opcao != 11:
-    print('Este é um configurador de ambiente para o sistema Protheus.\nEscolha uma das opções abaixo.\n')
-    print('**********************************************************')
-    print('''
-    [ 1 ] Padrão
-    [ 2 ] MyMobility 
-    [ 3 ] MyMobility_1299
-    [ 4 ] Estoque
-    [ 5 ] Logística
-    [ 6 ] Oficina
-    [ 7 ] Safran Representações
-    [ 8 ] Ambiente de Validação
-    [ 9 ] Verificar ambiente
-    [ 10 ] Sair do configurador e Abrir o Protheus\n''')
-    print('**********************************************************\n')
-    opcao = int(input('Qual é a sua opção? '))
+while opcao != 10:
+    print('Este é um configurador de ambiente para o sistema Protheus.\n\nEscolha uma das opções abaixo.\n')
+    print(' _____________________________________________________________')
+    print('''|                                                            |
+|       [ 1 ] Padrão                                         |
+|       [ 2 ] MyMobility                                     |
+|       [ 3 ] MyMobility_1299                                |
+|       [ 4 ] Estoque                                        |
+|       [ 5 ] Logística                                      |
+|       [ 6 ] Oficina                                        |
+|       [ 7 ] Safran Representações                          |
+|       [ 8 ] Ambiente de Validação                          |
+|       [ 9 ] Verificar ambiente                             |
+|       [ 10 ] Sair do configurador e Abrir o Protheus       |
+|                                                            |''')           
+    print('_____________________________________________________________')
+    opcao = int(input('\nQual é a sua opção? '))
     if opcao == 1:
         os.system('cls')
         config.set('tcp', 'server', '10.14.115.12')
