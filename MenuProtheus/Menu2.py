@@ -63,3 +63,5 @@ while opcao != 9:
             config.write(configfile)
 os.system('cls')
 print('Fim da execução')
+
+#if not opcao.isdigit() or int(opcao) not in range(1, 10):

@@ -18,7 +18,7 @@ port = config.get('tcp', 'port')
 ambiente = ambientes.get((server, port))
 print(f"Seu ambiente atual é: Ambiente {ambiente} server={server} e port={port}\n")
 opcao = 0
-while opcao != 9:
+while opcao != 10:
     print('Este é um configurador de ambiente para o sistema Protheus.\nEscolha uma das opções abaixo.\n')
     print('**********************************************************')
     print('''
@@ -30,9 +30,11 @@ while opcao != 9:
     [ 6 ] Oficina
     [ 7 ] Safran Representações
     [ 8 ] Ambiente de Validação
-    [ 9 ] Sair do configurador\n''')
+    [ 9 ] Verificar ambiente
+    [ 10 ] Sair do configurador e Abrir o Protheus\n''')
     print('**********************************************************\n')
     opcao = int(input('Qual é a sua opção? '))
+    print("Opção inválida!")
     if opcao == 1:
         config.set('tcp', 'server', '10.14.115.12')
         config.set('tcp', 'port', '1111')
@@ -73,5 +75,10 @@ while opcao != 9:
         config.set('tcp', 'port', '1456')
         with open('C:\Program Files\Protheus_2210\smartclient.ini', 'w') as configfile:
             config.write(configfile)
+    elif opcao ==9:
+         print(f"Seu ambiente atual é: Ambiente {ambiente} server={server} e port={port}\n")
 os.system('cls')
-print('Fim da execução')
+if input("Deseja abrir o Protheus? (s/n) ") == "s":
+   if resposta.lower() not in ["s", "n"]:
+    print("Resposta inválida!")
+    os.system(r'"C:\Program Files\Protheus_2210\smartclient.exe"')
