@@ -23,7 +23,7 @@ ambientes = {
 server = config.get('tcp', 'server')
 port = config.get('tcp', 'port')
 ambiente = ambientes.get((server, port))
-print("\033[34m" + f"Seu ambiente atual é: Ambiente {ambiente} server={server} e port={port}\n" + "\033[0m")
+print("\n\033[34m" + f"Seu ambiente atual é: Ambiente {ambiente} server={server} e port={port}\n" + "\033[0m")
 
 #Trecho responsável por exibir o menu de opções para o usuário, ler a opção escolhida e executar as funcionalidades atribuidas.
 
