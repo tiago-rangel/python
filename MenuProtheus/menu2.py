@@ -6,12 +6,16 @@ import sys
 import time
 import os
 
+#trecho que limpa a tela e é informado o caminho do arquivo para verificação
 os.system('cls')
 arquivo = "C:\\Program Files\\Protheus_2210\\smartclient.ini"
 
 # Verificando se o programa está sendo executado por um usuário com privilégios de administrador
+
 if ctypes.windll.shell32.IsUserAnAdmin():
+   
     # Obtendo o SID dos usuários
+    
     try:
         todos, domain, type = win32security.LookupAccountName("", "Todos")
     except:
@@ -22,12 +26,15 @@ if ctypes.windll.shell32.IsUserAnAdmin():
         usuarios, domain, type = win32security.LookupAccountName("", "Users")
 
     # Obtendo as informações de segurança do arquivo
+    
     sd = win32security.GetFileSecurity(arquivo, win32security.DACL_SECURITY_INFORMATION)
 
     # Obtendo a DACL atual do arquivo
+    
     dacl = sd.GetSecurityDescriptorDacl()
 
     # Verificando se os usuários já possuem as permissões solicitadas
+    
     todos_permissoes = False
     usuarios_permissoes = False
     
@@ -39,15 +46,19 @@ if ctypes.windll.shell32.IsUserAnAdmin():
             usuarios_permissoes = True
     
     if not (todos_permissoes and usuarios_permissoes):
+        
         # Adicionando os usuários com permissão de modificar, ler e executar, leitura, gravação e permissões especiais
+        
         dacl.AddAccessAllowedAce(win32security.ACL_REVISION, con.FILE_GENERIC_READ | con.FILE_GENERIC_WRITE | con.FILE_GENERIC_EXECUTE | con.DELETE | con.WRITE_DAC | con.WRITE_OWNER, todos)
         dacl.AddAccessAllowedAce(win32security.ACL_REVISION, con.FILE_GENERIC_READ | con.FILE_GENERIC_WRITE | con.FILE_GENERIC_EXECUTE | con.DELETE | con.WRITE_DAC | con.WRITE_OWNER, usuarios)
 
         # Atualizando as informações de segurança do arquivo
+        
         sd.SetSecurityDescriptorDacl(1, dacl, 0)
         win32security.SetFileSecurity(arquivo, win32security.DACL_SECURITY_INFORMATION, sd)
 
         # Exibindo a mensagem na cor verde utilizando ANSI
+        
         print("\033[32mPermissões do arquivo alteradas\033[0m")
         time.sleep(3)
 else:
@@ -87,7 +98,8 @@ else:
 
 os.system('cls')
 
-# Este trecho de código realiza a primeira leitura do arquivo
+# Este trecho de código realiza novamente a leitura do arquivo para executar as tarefas de alteração conforme a opção do menu
+
 file_path = "C:\\Program Files\\Protheus_2210\\smartclient.ini"
 config = configparser.ConfigParser()
 config.read(file_path)
@@ -257,3 +269,4 @@ while True:
             print('\033[91mOpção inválida. Tente novamente.\033[0m')
     except ValueError:
         print('\033[91mEntrada inválida. Tente novamente.\033[0m')
+        input("pressione ENTER para sair")
