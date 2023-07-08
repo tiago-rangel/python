@@ -1,7 +1,0 @@
-## Bing
-
-Você pode usar a biblioteca `auto-py-to-exe` para mudar o ícone do programa. Primeiro, abra o terminal e instale a biblioteca usando o comando `pip install auto-py-to-exe`. Após a instalação, digite `auto-py-to-exe` no terminal para abrir uma interface para a transformação . Você pode encontrar mais informações sobre como usar a biblioteca na [documentação](https://pypi.org/project/auto-py-to-exe/).
-
-## Bing
-
-Essa mensagem de erro indica que o comando `auto-py-to-exe` não foi reconhecido pelo sistema. Isso pode acontecer se o caminho para o script do `auto-py-to-exe` não estiver no `PATH` do sistema. Você pode tentar executar o comando usando o caminho completo para o script ou adicionando o caminho para o script no `PATH` do sistema. Outra opção é tentar executar o comando usando `python -m auto_py_to_exe` em vez de `auto-py-to-exe`.

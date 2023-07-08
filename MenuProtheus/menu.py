@@ -1,7 +1,26 @@
-import os
 import configparser
 import sys
+import os
+import time
 
+#Este trecho de código testa se o arquivo possui os atributos de escrita necessários para a execução do programa
+
+file_path = "C:\\Program Files\\Protheus_2210\\smartclient.ini"
+
+if os.access(file_path, os.W_OK):
+    print("\033[32mPermissão para escrita\033[0m")
+else:
+    print("\033[31mPermissão de somente leitura. Deseja alterar a permissão do arquivo?\033[0m")
+    user_input = input("Digite 's' para sim e 'n' para não: ")
+    while user_input not in ['s', 'n']:
+        print("\033[31mOpção inválida\033[0m")
+        user_input = input("Digite 's' para sim e 'n' para não: ")
+    if user_input == 's':
+        os.chmod(file_path, 0o777)
+    else:
+        print("\033[31mO sistema será encerrado\033[0m")
+        time.sleep(3)
+        exit()
 # Este trecho de código realiza a primeira leitura do arquivo
 
 config = configparser.ConfigParser()
