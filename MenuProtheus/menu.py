@@ -2,6 +2,7 @@ import configparser
 import sys
 import os
 
+os.system('cls')
 # Este trecho de código realiza a primeira leitura do arquivo
 file_path = "C:\\Program Files\\Protheus_2210\\smartclient.ini"
 config = configparser.ConfigParser()
@@ -25,9 +26,8 @@ ambiente = ambientes.get((server, port))
 print("\n\033[34m" + f"Seu ambiente atual é: Ambiente {ambiente} server={server} e port={port}\n" + "\033[0m")
 
 #Trecho responsável por exibir o menu de opções para o usuário, ler a opção escolhida e executar as funcionalidades atribuidas.
-
 opcao = 0
-while opcao != 10:
+while opcao != 10 :
     print('Este é um configurador de ambiente para o sistema Protheus.\n\nEscolha uma das opções abaixo.\n')
     print("\033[34m" + ' _____________________________________________________________' + "\033[0m")
     print("\033[34m" + '''|                                                            |
@@ -71,6 +71,27 @@ while opcao != 10:
         ambiente = ambientes.get((server, port))
         print("\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n" + "\033[0m")
 
+    if opcao == 2:
+        os.system('cls')
+        config.set('tcp', 'server', '10.14.115.12')
+        config.set('tcp', 'port', '1240')
+        with open(file_path, 'w') as configfile:
+            config.write(configfile)
+        server = config.get('tcp', 'server')
+        port = config.get('tcp', 'port')
+        ambiente = ambientes.get((server, port))
+        print("\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n" + "\033[0m")
+
+    if opcao == 3:
+        os.system('cls')
+        config.set('tcp', 'server', '10.14.115.12')
+        config.set('tcp', 'port', '1299')
+        with open(file_path, 'w') as configfile:
+            config.write(configfile)
+        server = config.get('tcp', 'server')
+        port = config.get('tcp', 'port')
+        ambiente = ambientes.get((server, port))
+        print("\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n" + "\033[0m")
 
     elif opcao == 4:
         os.system('cls')
