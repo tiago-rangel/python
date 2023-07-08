@@ -1,31 +1,11 @@
 import configparser
 import sys
 import os
-import time
 
-#Este trecho de código testa se o arquivo possui os atributos de escrita necessários para a execução do programa
-
-file_path = "C:\\Program Files\\Protheus_2210\\smartclient.ini"
-
-if os.access(file_path, os.W_OK):
-    print("\033[32mPermissão para escrita\033[0m")
-else:
-    print("\033[31mPermissão de somente leitura. Deseja alterar a permissão do arquivo?\033[0m")
-    user_input = input("Digite 's' para sim e 'n' para não: ")
-    while user_input not in ['s', 'n']:
-        print("\033[31mOpção inválida\033[0m")
-        user_input = input("Digite 's' para sim e 'n' para não: ")
-    if user_input == 's':
-        os.chmod(file_path, 0o777)
-    else:
-        print("\033[31mO sistema será encerrado\033[0m")
-        time.sleep(3)
-        exit()
 # Este trecho de código realiza a primeira leitura do arquivo
-
+file_path = "C:\\Program Files\\Protheus_2210\\smartclient.ini"
 config = configparser.ConfigParser()
-config.read("C:\Program Files\Protheus_2210\smartclient.ini")
-os.system('cls')
+config.read(file_path)
 
 #Descrição dos ambientes configurados, para exibir quando a opção [9] For selecionada.
 
@@ -84,34 +64,13 @@ while opcao != 10:
         os.system('cls')
         config.set('tcp', 'server', '10.14.115.12')
         config.set('tcp', 'port', '1111')
-        with open('C:\Program Files\Protheus_2210\smartclient.ini', 'w') as configfile:
+        with open(file_path, 'w') as configfile:
             config.write(configfile)
         server = config.get('tcp', 'server')
         port = config.get('tcp', 'port')
         ambiente = ambientes.get((server, port))
-        print("\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n"+ "\033[0m")
+        print("\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n" + "\033[0m")
 
-    elif opcao == 2:
-        os.system('cls')
-        config.set('tcp', 'server', '10.14.115.12')
-        config.set('tcp', 'port', '1240')
-        with open('C:\Program Files\Protheus_2210\smartclient.ini', 'w') as configfile:
-            config.write(configfile)
-        server = config.get('tcp', 'server')
-        port = config.get('tcp', 'port')
-        ambiente = ambientes.get((server, port))
-        print("\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n"+ "\033[0m")
-
-    elif opcao == 3:
-        os.system('cls')
-        config.set('tcp', 'server', '10.14.115.12')
-        config.set('tcp', 'port', '1299')
-        with open('C:\Program Files\Protheus_2210\smartclient.ini', 'w') as configfile:
-            config.write(configfile)
-        server = config.get('tcp', 'server')
-        port = config.get('tcp', 'port')
-        ambiente = ambientes.get((server, port))
-        print("\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n"+ "\033[0m")
 
     elif opcao == 4:
         os.system('cls')
