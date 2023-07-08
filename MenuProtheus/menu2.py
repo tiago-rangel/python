@@ -6,6 +6,14 @@ import sys
 import time
 import os
 
+#O trecho abaixo verifica se o Protheus está devidamente instalado no computador.
+os.system('cls')
+
+if not os.path.exists(r'C:\Program Files\Protheus_2210\smartclient.ini'):
+    print('\033[31m' + 'O Protheus não está corretamente instalado neste computador' + '\033[0m')
+    time.sleep(4)
+    sys.exit()
+    
 #trecho que limpa a tela e é informado o caminho do arquivo para verificação
 os.system('cls')
 arquivo = "C:\\Program Files\\Protheus_2210\\smartclient.ini"
