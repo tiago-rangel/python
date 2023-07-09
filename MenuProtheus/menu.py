@@ -277,6 +277,5 @@ while True:
             print('\033[91mOpção inválida. Tente novamente.\033[0m')
     except ValueError:
         print('\033[91mEntrada inválida. Tente novamente.\033[0m')
-        input("pressione ENTER para sair")
         
         #Programa desemvolvido por Tiago Ribeiro Rangel
