@@ -1,0 +1,9 @@
+A solução para o erro "WARNING: lib not found: pywintypes311.dll" pode ser copiar os arquivos 'pythoncom311.dll' e 'pywintypes311.dll' do diretório `C:\Users\tiago\AppData\Roaming\Python\Python311\site-packages\pywin32_system32` para o diretório `C:\Users\tiago\AppData\Roaming\Python\Python311\site-packages\win32\lib` ⁴. Isso funcionou para outras pessoas que tiveram um problema semelhante. Espero que isso ajude! 😊
+
+
+(1) ImportError: No system module 'pywintypes' (pywintypes39.dll). https://stackoverflow.com/questions/65573140/importerror-no-system-module-pywintypes-pywintypes39-dll.
+(2) python - PyInstaller WARNING: lib not found - Stack Overflow. https://stackoverflow.com/questions/48712154/pyinstaller-warning-lib-not-found.
+(3) Fatal error detected: error loading python dll 'python311.dll'. https://stackoverflow.com/questions/75890988/fatal-error-detected-error-loading-python-dll-python311-dll.
+(4) Issues When Using auto-py-to-exe - Nitratine. https://nitratine.net/blog/post/issues-when-using-auto-py-to-exe/.
+(5) ImportError: No system module 'pywintypes' (pywintypes38.dll). https://stackoverflow.com/questions/66861191/importerror-no-system-module-pywintypes-pywintypes38-dll.
+(6) How to fix pyinstaller missing libraries errors - Stack Overflow. https://stackoverflow.com/questions/59121290/how-to-fix-pyinstaller-missing-libraries-errors.
