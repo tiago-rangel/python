@@ -1,0 +1,3 @@
+pip install pywin32
+pip install win32security
+pip install auto-py-to-exe
