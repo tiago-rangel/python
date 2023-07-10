@@ -16,118 +16,50 @@ if not os.path.exists(r'C:\Program Files\Protheus_2210\smartclient.ini'):
     
 # trecho que limpa a tela e é informado o caminho do arquivo para verificação
 os.system('cls')
+
 arquivo = "C:\\Program Files\\Protheus_2210\\smartclient.ini"
 
 # Verificando se o programa está sendo executado por um usuário com privilégios de administrador
-
 if ctypes.windll.shell32.IsUserAnAdmin():
-   
-    # Verificando se o computador está no domínio "tm.corp"
-    domain_name = ""
-    computer_name = os.environ['COMPUTERNAME']
-    try:
-        domain_name = win32security.LookupAccountName(None, computer_name)[1]
-    except:
-        pass
-    
-    if domain_name == "TM":
-        domain_name = "tm.corp"
-    
-    # Obtendo o SID dos usuários
-    
-    try:
-        todos, domain, type = win32security.LookupAccountName(domain_name, "Todos")
-    except:
-        todos, domain, type = win32security.LookupAccountName(domain_name, "Everyone")
-    try:
-        usuarios, domain, type = win32security.LookupAccountName(domain_name, "Usuários")
-    except:
-        usuarios, domain, type = win32security.LookupAccountName(domain_name, "Users")
+    # Obtendo o SID dos usuários locais
+    sid = win32security.ConvertStringSidToSid("S-1-5-32-545")
 
     # Obtendo as informações de segurança do arquivo
-    
     sd = win32security.GetFileSecurity(arquivo, win32security.DACL_SECURITY_INFORMATION)
 
     # Obtendo a DACL atual do arquivo
-    
     dacl = sd.GetSecurityDescriptorDacl()
 
     # Verificando se os usuários já possuem as permissões solicitadas
-    
-    todos_permissoes = False
-    usuarios_permissoes = False
-    
+    users_permissoes = False
+
     for i in range(dacl.GetAceCount()):
         ace = dacl.GetAce(i)
-        if ace[2] == todos:
-            todos_permissoes = True
-        elif ace[2] == usuarios:
-            usuarios_permissoes = True
-    
-    if not (todos_permissoes and usuarios_permissoes):
-        
-        # Adicionando os usuários com permissão de modificar, ler e executar, leitura, gravação e permissões especiais
-        
-        dacl.AddAccessAllowedAce(win32security.ACL_REVISION, con.FILE_GENERIC_READ | con.FILE_GENERIC_WRITE | con.FILE_GENERIC_EXECUTE | con.DELETE | con.WRITE_DAC | con.WRITE_OWNER, todos)
-        dacl.AddAccessAllowedAce(win32security.ACL_REVISION, con.FILE_GENERIC_READ | con.FILE_GENERIC_WRITE | con.FILE_GENERIC_EXECUTE | con.DELETE | con.WRITE_DAC | con.WRITE_OWNER, usuarios)
+        if ace[2] == sid:
+            users_permissoes = True
+
+    if not users_permissoes:
+        # Adicionando os usuários com permissão de controle total
+        dacl.AddAccessAllowedAce(win32security.ACL_REVISION, con.FILE_ALL_ACCESS, sid)
 
         # Atualizando as informações de segurança do arquivo
-        
         sd.SetSecurityDescriptorDacl(1, dacl, 0)
         win32security.SetFileSecurity(arquivo, win32security.DACL_SECURITY_INFORMATION, sd)
 
         # Exibindo a mensagem na cor verde utilizando ANSI
-        
         print("\033[32mPermissões do arquivo alteradas\033[0m")
         time.sleep(3)
 else:
-    # Verificando se o arquivo já foi previamente alterado
-    sd = win32security.GetFileSecurity(arquivo, win32security.DACL_SECURITY_INFORMATION)
-    dacl = sd.GetSecurityDescriptorDacl()
+    # Exibindo a mensagem na cor vermelha utilizando ANSI
+    print("\033[31mFavor executar com uma conta de administrador para realizar as devidas configurações.\033[0m")
+
+    # Pausando a execução do programa por 3 segundos
+    time.sleep(3)
     
-    # Verificando se o computador está no domínio "tm.corp"
-    domain_name = ""
-    computer_name = os.environ['COMPUTERNAME']
-    try:
-        domain_name = win32security.LookupAccountName(None, computer_name)[1]
-    except:
-        pass
-    
-    if domain_name == "TM":
-        domain_name = "tm.corp"
-    
-    try:
-        todos, domain, type = win32security.LookupAccountName(domain_name, "Todos")
-    except:
-        todos, domain, type = win32security.LookupAccountName(domain_name, "Everyone")
-    
-    try:
-        usuarios, domain, type = win32security.LookupAccountName(domain_name, "Usuários")
-    except:
-        usuarios, domain, type = win32security.LookupAccountName(domain_name, "Users")
-    
-    todos_permissoes = False
-    usuarios_permissoes = False
-    
-    for i in range(dacl.GetAceCount()):
-        ace = dacl.GetAce(i)
-        if ace[2] == todos:
-            todos_permissoes = True
-        elif ace[2] == usuarios:
-            usuarios_permissoes = True
-    
-    if not (todos_permissoes and usuarios_permissoes):
-        # Exibindo a mensagem na cor vermelha utilizando ANSI
-        print("\033[31mPara que o programa funcione favor executá-lo primeiro como administrador\033[0m")
-        
-        # Pausando a execução do programa por 3 segundos
-        time.sleep(3)
-        
-        # Encerrando o programa
-        sys.exit()
+    # Encerrando o programa
+    sys.exit()
 
 os.system('cls')
-
 
 # Este trecho de código realiza novamente a leitura do arquivo para executar as tarefas de alteração conforme a opção do menu
 
