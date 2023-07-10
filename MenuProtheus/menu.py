@@ -97,9 +97,9 @@ print("\n\033[34m" + f"Seu ambiente atual é: Ambiente {ambiente} server={server
 #Trecho responsável por exibir o menu de opções para o usuário, ler a opção escolhida e executar as funcionalidades atribuidas.
 opcao = 0
 while opcao != 10 :
-    print('Este é um configurador de ambiente para o sistema Protheus.\n\nEscolha uma das opções abaixo.\n')
-    print("\033[34m" + ' _____________________________________________________________' + "\033[0m")
-    print("\033[34m" + '''|                                                            |
+    print("\033[33mEste é um configurador de ambiente para o sistema Protheus.\n\nEscolha uma das opções abaixo.\n\033[0m")
+    print("\033[32m" + ' _____________________________________________________________' + "\033[0m")
+    print("\033[32m" + '''|                                                            |
 |       [ 1 ] Padrão                                         |
 |       [ 2 ] MyMobility                                     |
 |       [ 3 ] MyMobility_1299                                |
@@ -111,7 +111,8 @@ while opcao != 10 :
 |       [ 9 ] Verificar ambiente                             |
 |       [ 10 ] Sair do configurador e Abrir o Protheus       |
 |                                                            |''' + "\033[0m")
-    print("\033[34m" + ' _____________________________________________________________' + "\033[0m")
+    print("\033[32m" + ' _____________________________________________________________' + "\033[0m")
+
 
    
     # Solicita ao usuário que digite a opção e testa é válida.
@@ -133,6 +134,9 @@ while opcao != 10 :
         os.system('cls')
         config.set('tcp', 'server', '10.14.115.12')
         config.set('tcp', 'port', '1111')
+        config.set('_DBG_TEMP', 'server', '10.14.115.12')
+        config.set('_DBG_TEMP', 'port', '1111')
+        config.set('_DBG_TEMP', 'secureconnection', '0')
         with open(file_path, 'w') as configfile:
             config.write(configfile)
         server = config.get('tcp', 'server')
@@ -144,6 +148,9 @@ while opcao != 10 :
         os.system('cls')
         config.set('tcp', 'server', '10.14.115.12')
         config.set('tcp', 'port', '1240')
+        config.set('_DBG_TEMP', 'server', '10.14.115.12')
+        config.set('_DBG_TEMP', 'port', '1240')
+        config.set('_DBG_TEMP', 'secureconnection', '0')
         with open(file_path, 'w') as configfile:
             config.write(configfile)
         server = config.get('tcp', 'server')
@@ -155,6 +162,9 @@ while opcao != 10 :
         os.system('cls')
         config.set('tcp', 'server', '10.14.115.12')
         config.set('tcp', 'port', '1299')
+        config.set('_DBG_TEMP', 'server', '10.14.115.12')
+        config.set('_DBG_TEMP', 'port', '1299')
+        config.set('_DBG_TEMP', 'secureconnection', '0')
         with open(file_path, 'w') as configfile:
             config.write(configfile)
         server = config.get('tcp', 'server')
@@ -166,6 +176,9 @@ while opcao != 10 :
         os.system('cls')
         config.set('tcp', 'server', '10.14.115.12')
         config.set('tcp', 'port', '1263')
+        config.set('_DBG_TEMP', 'server', '10.14.115.12')
+        config.set('_DBG_TEMP', 'port', '1263')
+        config.set('_DBG_TEMP', 'secureconnection', '0')
         with open('C:\Program Files\Protheus_2210\smartclient.ini', 'w') as configfile:
             config.write(configfile)
         server = config.get('tcp', 'server')
@@ -177,6 +190,9 @@ while opcao != 10 :
         os.system('cls')
         config.set('tcp', 'server', '10.14.115.30')
         config.set('tcp', 'port', '1301')
+        config.set('_DBG_TEMP', 'server', '10.14.115.30')
+        config.set('_DBG_TEMP', 'port', '1301')
+        config.set('_DBG_TEMP', 'secureconnection', '0')
         with open('C:\Program Files\Protheus_2210\smartclient.ini', 'w') as configfile:
             config.write(configfile)
         server = config.get('tcp', 'server')
@@ -188,6 +204,9 @@ while opcao != 10 :
         os.system('cls')
         config.set('tcp', 'server', '10.14.115.30')
         config.set('tcp', 'port', '1302')
+        config.set('_DBG_TEMP', 'server', '10.14.115.30')
+        config.set('_DBG_TEMP', 'port', '1302')
+        config.set('_DBG_TEMP', 'secureconnection', '0')
         with open('C:\Program Files\Protheus_2210\smartclient.ini', 'w') as configfile:
             config.write(configfile)
         server = config.get('tcp', 'server')
@@ -199,6 +218,9 @@ while opcao != 10 :
         os.system('cls')
         config.set('tcp', 'server', '10.14.115.30')
         config.set('tcp', 'port', '1303')
+        config.set('_DBG_TEMP', 'server', '10.14.115.30')
+        config.set('_DBG_TEMP', 'port', '1303')
+        config.set('_DBG_TEMP', 'secureconnection', '0')
         with open('C:\Program Files\Protheus_2210\smartclient.ini', 'w') as configfile:
             config.write(configfile)
         server = config.get('tcp', 'server')
@@ -210,6 +232,9 @@ while opcao != 10 :
         os.system('cls')
         config.set('tcp', 'server', '10.14.115.12')
         config.set('tcp', 'port', '1304')
+        config.set('_DBG_TEMP', 'server', '10.14.115.32')
+        config.set('_DBG_TEMP', 'port', '1304')
+        config.set('_DBG_TEMP', 'secureconnection', '0')
         with open('C:\Program Files\Protheus_2210\smartclient.ini', 'w') as configfile:
             config.write(configfile)
         server = config.get('tcp', 'server')
@@ -243,4 +268,4 @@ while True:
     except ValueError:
         print('\033[91mEntrada inválida. Tente novamente.\033[0m')
         
-        #Programa desemvolvido por Tiago Ribeiro Rangel
+#Programa desemvolvido por Tiago Ribeiro Rangel
