@@ -6,7 +6,7 @@ import sys
 import time
 import os
 
-#O trecho abaixo verifica se o Protheus está devidamente instalado no computador.
+# O trecho abaixo verifica se o Protheus está devidamente instalado no computador.
 os.system('cls')
 
 if not os.path.exists(r'C:\Program Files\Protheus_2210\smartclient.ini'):
@@ -14,7 +14,7 @@ if not os.path.exists(r'C:\Program Files\Protheus_2210\smartclient.ini'):
     time.sleep(4)
     sys.exit()
     
-#trecho que limpa a tela e é informado o caminho do arquivo para verificação
+# trecho que limpa a tela e é informado o caminho do arquivo para verificação
 os.system('cls')
 arquivo = "C:\\Program Files\\Protheus_2210\\smartclient.ini"
 
@@ -22,16 +22,27 @@ arquivo = "C:\\Program Files\\Protheus_2210\\smartclient.ini"
 
 if ctypes.windll.shell32.IsUserAnAdmin():
    
+    # Verificando se o computador está no domínio "tm.corp"
+    domain_name = ""
+    computer_name = os.environ['COMPUTERNAME']
+    try:
+        domain_name = win32security.LookupAccountName(None, computer_name)[1]
+    except:
+        pass
+    
+    if domain_name == "TM":
+        domain_name = "tm.corp"
+    
     # Obtendo o SID dos usuários
     
     try:
-        todos, domain, type = win32security.LookupAccountName("", "Todos")
+        todos, domain, type = win32security.LookupAccountName(domain_name, "Todos")
     except:
-        todos, domain, type = win32security.LookupAccountName("", "Everyone")
+        todos, domain, type = win32security.LookupAccountName(domain_name, "Everyone")
     try:
-        usuarios, domain, type = win32security.LookupAccountName("", "Usuários")
+        usuarios, domain, type = win32security.LookupAccountName(domain_name, "Usuários")
     except:
-        usuarios, domain, type = win32security.LookupAccountName("", "Users")
+        usuarios, domain, type = win32security.LookupAccountName(domain_name, "Users")
 
     # Obtendo as informações de segurança do arquivo
     
@@ -74,15 +85,26 @@ else:
     sd = win32security.GetFileSecurity(arquivo, win32security.DACL_SECURITY_INFORMATION)
     dacl = sd.GetSecurityDescriptorDacl()
     
+    # Verificando se o computador está no domínio "tm.corp"
+    domain_name = ""
+    computer_name = os.environ['COMPUTERNAME']
     try:
-        todos, domain, type = win32security.LookupAccountName("", "Todos")
+        domain_name = win32security.LookupAccountName(None, computer_name)[1]
     except:
-        todos, domain, type = win32security.LookupAccountName("", "Everyone")
+        pass
+    
+    if domain_name == "TM":
+        domain_name = "tm.corp"
     
     try:
-        usuarios, domain, type = win32security.LookupAccountName("", "Usuários")
+        todos, domain, type = win32security.LookupAccountName(domain_name, "Todos")
     except:
-        usuarios, domain, type = win32security.LookupAccountName("", "Users")
+        todos, domain, type = win32security.LookupAccountName(domain_name, "Everyone")
+    
+    try:
+        usuarios, domain, type = win32security.LookupAccountName(domain_name, "Usuários")
+    except:
+        usuarios, domain, type = win32security.LookupAccountName(domain_name, "Users")
     
     todos_permissoes = False
     usuarios_permissoes = False
@@ -105,6 +127,7 @@ else:
         sys.exit()
 
 os.system('cls')
+
 
 # Este trecho de código realiza novamente a leitura do arquivo para executar as tarefas de alteração conforme a opção do menu
 
