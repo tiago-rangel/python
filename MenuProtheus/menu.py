@@ -16,50 +16,60 @@ if not os.path.exists(r'C:\Program Files\Protheus_2210\smartclient.ini'):
     
 # trecho que limpa a tela e é informado o caminho do arquivo para verificação
 os.system('cls')
-
-arquivo = "C:\\Program Files\\Protheus_2210\\smartclient.ini"
-
-# Verificando se o programa está sendo executado por um usuário com privilégios de administrador
-if ctypes.windll.shell32.IsUserAnAdmin():
-    # Obtendo o SID dos usuários locais
-    sid = win32security.ConvertStringSidToSid("S-1-5-32-545")
-
-    # Obtendo as informações de segurança do arquivo
-    sd = win32security.GetFileSecurity(arquivo, win32security.DACL_SECURITY_INFORMATION)
-
-    # Obtendo a DACL atual do arquivo
-    dacl = sd.GetSecurityDescriptorDacl()
-
-    # Verificando se os usuários já possuem as permissões solicitadas
-    users_permissoes = False
-
+def verifica_permissao(caminho_arquivo):
+    # Obtém informações de segurança do arquivo
+    info = win32security.GetFileSecurity(caminho_arquivo, win32security.DACL_SECURITY_INFORMATION)
+    dacl = info.GetSecurityDescriptorDacl()
+    
+    # Verifica as permissões do usuário "Usuários"
     for i in range(dacl.GetAceCount()):
         ace = dacl.GetAce(i)
-        if ace[2] == sid:
-            users_permissoes = True
+        sid = ace[-1]
+        name, domain, type = win32security.LookupAccountSid(None, sid)
+        if sid == win32security.ConvertStringSidToSid("S-1-5-32-545"):
+            mask = ace[1]
+           
+            """print(f"Permissões do usuário {name}:")
+            print(f"  Modificar: {bool(mask & con.FILE_GENERIC_WRITE)}")
+            print(f"  Ler e Executar: {bool(mask & con.FILE_GENERIC_EXECUTE)}")
+            print(f"  Ler: {bool(mask & con.FILE_GENERIC_READ)}")
+            print(f"  Escrever: {bool(mask & con.FILE_WRITE_DATA)}")
+            print(f"  Permissões especiais: {bool(mask & con.FILE_ALL_ACCESS)}") """
+        
+            # Verifica se todas as permissões estão presentes
+            if (mask & con.FILE_GENERIC_WRITE) and (mask & con.FILE_GENERIC_EXECUTE) and (mask & con.FILE_GENERIC_READ) and (mask & con.FILE_WRITE_DATA) and (mask & con.FILE_ALL_ACCESS):
+                return True
+    return False
 
-    if not users_permissoes:
-        # Adicionando os usuários com permissão de controle total
-        dacl.AddAccessAllowedAce(win32security.ACL_REVISION, con.FILE_ALL_ACCESS, sid)
-
-        # Atualizando as informações de segurança do arquivo
-        sd.SetSecurityDescriptorDacl(1, dacl, 0)
-        win32security.SetFileSecurity(arquivo, win32security.DACL_SECURITY_INFORMATION, sd)
-
-        # Exibindo a mensagem na cor verde utilizando ANSI
-        print("\033[32mPermissões do arquivo alteradas\033[0m")
-        time.sleep(3)
-else:
-    # Exibindo a mensagem na cor vermelha utilizando ANSI
-    print("\033[31mFavor executar com uma conta de administrador para realizar as devidas configurações.\033[0m")
-
-    # Pausando a execução do programa por 3 segundos
-    time.sleep(3)
+def altera_permissao(caminho_arquivo):
+    # Obtém informações de segurança do arquivo
+    info = win32security.GetFileSecurity(caminho_arquivo, win32security.DACL_SECURITY_INFORMATION)
+    dacl = info.GetSecurityDescriptorDacl()
     
-    # Encerrando o programa
-    sys.exit()
+    # Adiciona permissões ao usuário "Usuários"
+    sid = win32security.ConvertStringSidToSid("S-1-5-32-545")
+    dacl.AddAccessAllowedAce(win32security.ACL_REVISION, con.FILE_GENERIC_WRITE | con.FILE_GENERIC_EXECUTE | con.FILE_GENERIC_READ | con.FILE_WRITE_DATA | con.FILE_ALL_ACCESS, sid)
+    
+    # Atualiza as informações de segurança do arquivo
+    info.SetSecurityDescriptorDacl(1, dacl, 0)
+    win32security.SetFileSecurity(caminho_arquivo, win32security.DACL_SECURITY_INFORMATION, info)
 
-os.system('cls')
+def main():
+    caminho_arquivo = r"C:\Program Files\Protheus_2210\smartclient.ini"
+    
+    # Verifica se o arquivo possui as permissões solicitadas
+    if not verifica_permissao(caminho_arquivo):
+        # Verifica se o programa está sendo executado por um administrador
+        if ctypes.windll.shell32.IsUserAnAdmin():
+            altera_permissao(caminho_arquivo)
+            print("\033[92mPermissões do arquivo alteradas com sucesso.\033[0m")
+            time.sleep(4)
+        else:
+            print("\033[91mPara o correto funcionamento, favor primeiro executar o programa como administrador.\033[0m")
+            time.sleep(4)
+            sys.exit()
+if __name__ == "__main__":
+    main()
 
 # Este trecho de código realiza novamente a leitura do arquivo para executar as tarefas de alteração conforme a opção do menu
 
