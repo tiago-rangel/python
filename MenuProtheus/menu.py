@@ -113,8 +113,6 @@ while opcao != 10 :
 |                                                            |''' + "\033[0m")
     print("\033[32m" + ' _____________________________________________________________' + "\033[0m")
 
-
-   
     # Solicita ao usuário que digite a opção e testa é válida.
 
     while True:
@@ -126,7 +124,6 @@ while opcao != 10 :
               break
       except ValueError:
           print('\033[91mEntrada inválida. Tente novamente.\033[0m')
-
 
     # De acordo com a opção escolhida pelo usuário é executada a alteração do campo TCP do arquivo ini
 
