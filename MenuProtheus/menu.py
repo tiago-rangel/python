@@ -64,6 +64,7 @@ def main():
             altera_permissao(caminho_arquivo)
             print("\033[92mPermissões do arquivo alteradas com sucesso.\033[0m")
             time.sleep(4)
+            os.system('cls')
         else:
             print("\033[91mPara o correto funcionamento, favor primeiro executar o programa como administrador.\033[0m")
             time.sleep(4)
