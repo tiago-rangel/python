@@ -11,7 +11,7 @@ def verifica_permissao(caminho_arquivo):
         ace = dacl.GetAce(i)
         sid = ace[-1]
         name, domain, type = win32security.LookupAccountSid(None, sid)
-        if name == "Usuários":
+        if sid == win32security.ConvertStringSidToSid("S-1-5-32-545"):
             mask = ace[1]
             print(f"Permissões do usuário {name}:")
             print(f"  Ler: {bool(mask & con.FILE_READ_DATA)}")
@@ -25,3 +25,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
