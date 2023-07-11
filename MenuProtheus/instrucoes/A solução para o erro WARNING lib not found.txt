@@ -1,4 +1,4 @@
-A solução para o erro "WARNING: lib not found: pywintypes311.dll" pode ser copiar os arquivos 'pythoncom311.dll' e 'pywintypes311.dll' do diretório `C:\Users\tiago\AppData\Roaming\Python\Python311\site-packages\pywin32_system32` para o diretório `C:\Users\tiago\AppData\Roaming\Python\Python311\site-packages\win32\lib` ⁴. Isso funcionou para outras pessoas que tiveram um problema semelhante. Espero que isso ajude! 😊
+A solução para o erro "WARNING: lib not found: pywintypes311.dll" pode ser copiar os arquivos 'pythoncom311.dll' e 'pywintypes311.dll' do diretório `C:\Users\tiago\AppData\Roaming\Python\Python311\site-packages\pywin32_system32` para o diretório `C:\Users\tiago\AppData\Roaming\Python\Python311\site-packages\win32\lib` ⁴. I
 
 
 (1) ImportError: No system module 'pywintypes' (pywintypes39.dll). https://stackoverflow.com/questions/65573140/importerror-no-system-module-pywintypes-pywintypes39-dll.

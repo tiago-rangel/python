@@ -1,9 +1,0 @@
-## Bing
-
-Se você deseja instalar a biblioteca pywin32 usando o comando `pip` e especificando hosts confiáveis, pode usar o seguinte comando:
-
-```
-python -m pip install --trusted-host files.pythonhosted.org --trusted-host pypi.org --trusted-host pypi.python.org pywin32
-```
-
-Isso deve instalar a biblioteca pywin32 em seu sistema, especificando `files.pythonhosted.org`, `pypi.org` e `pypi.python.org` como hosts confiáveis. Espero que isso ajude! 😊
