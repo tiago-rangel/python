@@ -10,7 +10,7 @@ import os
 os.system('cls')
 
 if not os.path.exists(r'C:\Program Files\Protheus_2210\smartclient.ini'):
-    print('\033[31m' + 'O Protheus não está corretamente instalado neste computador' + '\033[0m')
+    print('\n\033[31m' + 'O Protheus não está corretamente instalado neste computador' + '\033[0m')
     time.sleep(4)
     sys.exit()
     
@@ -62,11 +62,11 @@ def main():
         # Verifica se o programa está sendo executado por um administrador
         if ctypes.windll.shell32.IsUserAnAdmin():
             altera_permissao(caminho_arquivo)
-            print("\033[92mPermissões do arquivo alteradas com sucesso.\033[0m")
+            print("\n\033[92mPermissões do arquivo alteradas com sucesso.\033[0m")
             time.sleep(4)
             os.system('cls')
         else:
-            print("\033[91mPara o correto funcionamento, favor primeiro executar o programa como administrador.\033[0m")
+            print("\n\033[91mPara o correto funcionamento, favor primeiro executar o programa como administrador.\033[0m")
             time.sleep(4)
             sys.exit()
 if __name__ == "__main__":
