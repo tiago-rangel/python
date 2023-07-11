@@ -17,9 +17,9 @@ DisableDirPage=yes
 DisableProgramGroupPage=yes
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
-OutputDir=C:\Users\tiago\OneDrive\Documentos\GitHub\python\MenuProtheus\Instalador
+OutputDir=C:\Users\User\OneDrive\Documentos\Programacao\python\MenuProtheus\Instalador
 OutputBaseFilename=ConfiguradorProtheus
-SetupIconFile=C:\Users\tiago\OneDrive\Documentos\GitHub\python\MenuProtheus\Instalador\Menu\menu.ico
+SetupIconFile=C:\Users\User\OneDrive\Documentos\Programacao\python\MenuProtheus\Instalador\Menu\menu.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -31,8 +31,8 @@ Name: "brazilianportuguese"; MessagesFile: "compiler:Languages\Portuguese.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\Users\tiago\OneDrive\Documentos\GitHub\python\MenuProtheus\Instalador\Menu\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\tiago\OneDrive\Documentos\GitHub\python\MenuProtheus\Instalador\Menu\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\Users\User\OneDrive\Documentos\Programacao\python\MenuProtheus\Instalador\Menu\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\User\OneDrive\Documentos\Programacao\python\MenuProtheus\Instalador\Menu\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
