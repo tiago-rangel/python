@@ -13,7 +13,7 @@ def uninstall_protheus():
         r'C:\Program Files\Protheus_33',
         r'C:\Program Files\Protheus_33_Mobility',
         r'C:\Program Files\Protheus_33_Validacao',
-        r'C:\Program Files\Smartclient_33_Representacoes',
+        r'C:\Program Files\Smarclient_33_Representacoes',
         r'C:\Program Files\Protheus_33_Oficina',
         r'C:\Program Files\Protheus_33_Logistica',
         r'C:\Program Files\Protheus_33_Estoque'
@@ -36,6 +36,11 @@ def uninstall_protheus():
         # Pergunte ao usuário se deseja desinstalar as versões encontradas
         print('\033[92m' + '\nDeseja desinstalar s ou n?')
         answer = input()
+        
+        while answer not in ["s", "S", "n", "N"]:
+            print("\033[31mOpção inválida!!! Digite 's' ou 'n'\033[0m")
+            answer = input()
+        
         print('\033[0m')
         
         if answer.lower() == 's':
@@ -69,11 +74,11 @@ def uninstall_protheus():
                                 print(f'Atalho {file} excluído com sucesso.')
                             except OSError:
                                 print(f'Não foi possível excluir o atalho {file}.')
-        
-        # Limpe a tela e exiba uma mensagem de conclusão
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print('\033[92m' + 'Desinstalação concluída\033[0m')
-        time.sleep(4)
+            
+            # Limpe a tela e exiba uma mensagem de conclusão
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print('\033[92m' + 'Desinstalação concluída\033[0m')
+            time.sleep(4)
         
         # Limpe a tela e encerre a execução
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -82,3 +87,4 @@ def uninstall_protheus():
         time.sleep(3)
 
 uninstall_protheus()
+
