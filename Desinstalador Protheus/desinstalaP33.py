@@ -4,6 +4,21 @@ import subprocess
 import time
 
 os.system('cls')
+
+def listar_diretorios():
+    diretorios = []
+    for letra in ['C', 'D', 'E']:
+        if os.path.exists(f'{letra}:\\'):
+            for nome in os.listdir(f'{letra}:\\'):
+                if nome.lower().startswith('protheus') or nome.lower().startswith('smartclient') or nome.lower().startswith('smarclient'):
+                    diretorios.append(f'{letra}:\\{nome}')
+    return diretorios
+
+def deletar_diretorios(diretorios):
+    for diretorio in diretorios:
+        if 'smartclient.exe' in os.listdir(diretorio):
+            shutil.rmtree(diretorio)
+
 def uninstall_protheus():
     # Crie uma lista para armazenar as informações de desinstalação
     protheus_versions = []
@@ -26,6 +41,11 @@ def uninstall_protheus():
             if os.path.exists(uninstaller_path):
                 protheus_versions.append((os.path.basename(protheus_folder), uninstaller_path))
     
+    # Adicione as pastas encontradas em C:, D: e E: à lista de versões do Protheus
+    diretorios = listar_diretorios()
+    for diretorio in diretorios:
+        protheus_versions.append((os.path.basename(diretorio), None))
+    
     if len(protheus_versions) > 0:
         # Imprima a lista de versões do Protheus encontradas
         print('\n\033[91m' + 'Versões do Protheus encontradas:\n')
@@ -46,9 +66,10 @@ def uninstall_protheus():
         if answer.lower() == 's':
             # Desinstale cada versão do Protheus encontrada
             for name, uninstall_string in protheus_versions:
-                print(f'Desinstalando {name}...')
-                subprocess.call(f'"{uninstall_string}" /SILENT')
-                print(f'{name} desinstalado com sucesso.')
+                if uninstall_string is not None:
+                    print(f'Desinstalando {name}...')
+                    subprocess.call(f'"{uninstall_string}" /SILENT')
+                    print(f'{name} desinstalado com sucesso.')
             
             # Verifique se as pastas foram excluídas e, se não, tente excluí-las
             for protheus_folder in protheus_folders:
@@ -75,6 +96,9 @@ def uninstall_protheus():
                             except OSError:
                                 print(f'Não foi possível excluir o atalho {file}.')
             
+            # Exclua as pastas encontradas em C:, D: e E:
+            deletar_diretorios(diretorios)
+            
             # Limpe a tela e exiba uma mensagem de conclusão
             os.system('cls' if os.name == 'nt' else 'clear')
             print('\033[92m' + 'Desinstalação concluída\033[0m')
@@ -87,4 +111,3 @@ def uninstall_protheus():
         time.sleep(3)
 
 uninstall_protheus()
-
