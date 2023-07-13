@@ -12,12 +12,12 @@ AppId={{1D3C072E-DF69-41BB-8D72-34AF477919F6}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
-DefaultDirName=C:\Program Files\ConfiguradorProtheus
+DefaultDirName=C:\Program Files\Configurador_P12_Fin
 DisableDirPage=yes
 DisableProgramGroupPage=yes
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
-OutputDir=C:\Users\User\OneDrive\Documentos\GitHub\python\MenuProtheus\Instalador\MenuFin\Instalador
+OutputDir=C:\Users\User\OneDrive\Documentos\GitHub\python\MenuProtheus\Instalador
 OutputBaseFilename=Configurador_P12_Fin
 SetupIconFile=C:\Users\User\OneDrive\Documentos\GitHub\python\MenuProtheus\Instalador\MenuFin\Menu.ico
 Compression=lzma
