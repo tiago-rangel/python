@@ -19,7 +19,7 @@ DisableProgramGroupPage=yes
 ;PrivilegesRequired=lowest
 OutputDir=C:\Users\User\OneDrive\Documentos\Programacao\python\MenuProtheus\Instalador
 OutputBaseFilename=ConfiguradorProtheus
-SetupIconFile=C:\Users\User\OneDrive\Documentos\Programacao\python\MenuProtheus\Instalador\Menu\menu.ico
+SetupIconFile=C:\Users\User\OneDrive\Documentos\GitHub\python\MenuProtheus\Instalador\Menu\Menu.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -31,8 +31,8 @@ Name: "brazilianportuguese"; MessagesFile: "compiler:Languages\Portuguese.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\Users\User\OneDrive\Documentos\Programacao\python\MenuProtheus\Instalador\Menu\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\User\OneDrive\Documentos\Programacao\python\MenuProtheus\Instalador\Menu\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\Users\User\OneDrive\Documentos\GitHub\python\MenuProtheus\Instalador\Menu\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\User\OneDrive\Documentos\GitHub\python\MenuProtheus\Instalador\Menu\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

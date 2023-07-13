@@ -140,7 +140,7 @@ while opcao != 10 :
         server = config.get('tcp', 'server')
         port = config.get('tcp', 'port')
         ambiente = ambientes.get((server, port))
-        print("\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n" + "\033[0m")
+        print("\n\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n" + "\033[0m")
 
     if opcao == 2:
         os.system('cls')
@@ -154,7 +154,7 @@ while opcao != 10 :
         server = config.get('tcp', 'server')
         port = config.get('tcp', 'port')
         ambiente = ambientes.get((server, port))
-        print("\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n" + "\033[0m")
+        print("\n\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n" + "\033[0m")
 
     if opcao == 3:
         os.system('cls')
@@ -168,7 +168,7 @@ while opcao != 10 :
         server = config.get('tcp', 'server')
         port = config.get('tcp', 'port')
         ambiente = ambientes.get((server, port))
-        print("\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n" + "\033[0m")
+        print("\n\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n" + "\033[0m")
 
     elif opcao == 4:
         os.system('cls')
@@ -182,7 +182,7 @@ while opcao != 10 :
         server = config.get('tcp', 'server')
         port = config.get('tcp', 'port')
         ambiente = ambientes.get((server, port))
-        print("\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n"+ "\033[0m")
+        print("\n\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n"+ "\033[0m")
 
     elif opcao == 5:
         os.system('cls')
@@ -196,7 +196,7 @@ while opcao != 10 :
         server = config.get('tcp', 'server')
         port = config.get('tcp', 'port')
         ambiente = ambientes.get((server, port))
-        print("\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n"+ "\033[0m")
+        print("\n\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n"+ "\033[0m")
 
     elif opcao == 6:
         os.system('cls')
@@ -210,7 +210,7 @@ while opcao != 10 :
         server = config.get('tcp', 'server')
         port = config.get('tcp', 'port')
         ambiente = ambientes.get((server, port))
-        print("\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n"+ "\033[0m")
+        print("\n\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n"+ "\033[0m")
 
     elif opcao == 7:
         os.system('cls')
@@ -224,7 +224,7 @@ while opcao != 10 :
         server = config.get('tcp', 'server')
         port = config.get('tcp', 'port')
         ambiente = ambientes.get((server, port))
-        print("\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n"+ "\033[0m")
+        print("\n\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n"+ "\033[0m")
 
     elif opcao == 8:
         os.system('cls')
@@ -238,14 +238,14 @@ while opcao != 10 :
         server = config.get('tcp', 'server')
         port = config.get('tcp', 'port')
         ambiente = ambientes.get((server, port))
-        print("\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n"+ "\033[0m")
+        print("\n\033[32m" + f"Reconfigurado para: Ambiente {ambiente} server={server} e port={port}\n"+ "\033[0m")
         
     elif opcao ==9:
          os.system('cls')
          server = config.get('tcp', 'server')
          port = config.get('tcp', 'port')
          ambiente = ambientes.get((server, port))
-         print("\033[34m" + f"Seu ambiente atual é: Ambiente {ambiente} server={server} e port={port}\n" + "\033[0m")
+         print("\n\033[34m" + f"Seu ambiente atual é: Ambiente {ambiente} server={server} e port={port}\n" + "\033[0m")
 
 #Finaliza o programa e abre  o Protheus com a configuração escolhida.
 
@@ -266,4 +266,4 @@ while True:
     except ValueError:
         print('\033[91mEntrada inválida. Tente novamente.\033[0m')
         
-#Programa desemvolvido por Tiago Ribeiro Rangel
+#Programa desemvolvido por Tiago Rangel
