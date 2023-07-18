@@ -256,14 +256,12 @@ import sys
 while True:
     try:
         opcao = input('\nDeseja abrir o Protheus? (s/n) ')
-        if opcao == 's':
+        if opcao.lower() == 's':
             os.system(r'"C:\Program Files\Protheus_2210\smartclient.exe"')
             sys.exit()
-        elif opcao == 'n':
+        elif opcao.lower() == 'n':
             break
         else:
             print('\033[91mOpção inválida. Tente novamente.\033[0m')
     except ValueError:
         print('\033[91mEntrada inválida. Tente novamente.\033[0m')
-        
-#Programa desemvolvido por Tiago Rangel
